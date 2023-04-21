@@ -49,10 +49,34 @@ if __name__ == "__main__":
     res = driver.find_elements(
         By.CSS_SELECTOR, "div.col-md-6")[1].find_elements(By.CSS_SELECTOR, "th")[0]
     all_divs = driver.find_elements(By.CSS_SELECTOR, "div.col-md-6")
-    for divs in all_divs:
+    """for divs in all_divs:
         if divs.text:
-            print(divs.text)
-            
+            print(divs.text)"""
+    # Find by CSS
+    amount = driver.find_element(By.CSS_SELECTOR, "div.container div.col-md-6 tr td")
+    print(amount.text)
+
+    # Xpath full path
+    amount_xpath = driver.find_element(By.XPATH, "/html/body/div/div[2]/div[2]/div[2]/table/tbody/tr[2]/td[1]")
+    print(f"amaount xpath: {amount_xpath.text}")
+    
+    # Xpath rel path
+    amount_rel_xpath = driver.find_element(By.XPATH, "//div/table/tbody[1]/tr[2]/td[1]")
+    print(f"amaount rel_xpath: {amount_rel_xpath.text}")
+
+    # Xpath starts-with
+    amount_starts_with = driver.find_element(By.XPATH, "//th[starts-with(@colspan,'2')]")
+    print(f"amaount starts-with: {amount_rel_xpath.text}")
+
+    # XPATH Contains
+    # Xpath = //tagname[contains(@attribute,'value')]
+
+    # XPATH text()
+    # Xpath = //tagname[text()=('ActualText')]
+
+    # XPATH AND & OR
+    # Xpath = //tagname[@Attribute='Value' and @Attribute='Value']
+    # Xpath = //tagname[@Attribute='Value' or @Attribute='Value']
 
     # print(f"res {res.text}")
 
