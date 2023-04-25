@@ -1,0 +1,41 @@
+import unittest
+from employee import Employee 
+
+class testEmployee(unittest.TestCase):
+
+    def setUp(self):
+        self.emp_1 = Employee("Benjamin", "Nass", 5000)
+        self.emp_2 = Employee("Gabriel", "Campos", 6000)
+
+    def tearDown(self):
+        pass
+
+    def test_email(self):
+        self.assertAlmostEqual(self.emp_1.email(), "Benjamin.Nass@email.com")
+        self.assertAlmostEqual(self.emp_2.email(), "Gabriel.Campos@email.com")
+
+        self.emp_1.first = "John"
+        self.emp_2.first = "Jane"
+
+        self.assertAlmostEqual(self.emp_1.email(), "John.Nass@email.com")
+        self.assertAlmostEqual(self.emp_2.email(), "Jane.Campos@email.com")
+        
+    def test_fullname(self):
+        self.assertAlmostEqual(self.emp_1.fullname(), "Benjamin Nass")
+        self.assertAlmostEqual(self.emp_2.fullname(), "Gabriel Campos")
+
+        self.emp_1.first = "John"
+        self.emp_2.first = "Jane"
+
+        self.assertAlmostEqual(self.emp_1.fullname(), "John Nass")
+        self.assertAlmostEqual(self.emp_2.fullname(), "Jane Campos")
+
+    def test_raise(self):
+        self.emp_1.apply_raise()
+        self.emp_2.apply_raise()
+
+        self.assertAlmostEqual(self.emp_1.pay, 5250)
+        self.assertAlmostEqual(self.emp_2.pay, 6300)
+
+if __name__ == "__main__":
+    unittest.main()
