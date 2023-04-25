@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+import time
 
 
 def iniciar_chrome():
@@ -46,6 +47,6 @@ if __name__ == "__main__":
     driver = iniciar_chrome()
     url = "https://drive.google.com"
     driver.get(url)
-    
+    time.sleep(5)
     
     driver.quit()
