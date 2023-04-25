@@ -83,5 +83,5 @@ class Run:
         else:
             exit("Please select between 1-6, exiting")
 
-
-Run.run()
+if __name__ == "__main__":
+    Run.run()
